@@ -1,0 +1,15 @@
+# -------------------------------------------------------------------------
+# This file controls default concretization preferences for Spack on Arjuna
+#
+# Settings here are versioned with Spack and are intended to provide
+# sensible defaults out of the box.
+#
+# Users can override these settings by editing their settings here:
+#   ~/.spack/packages.yaml
+# -------------------------------------------------------------------------
+packages:
+  all:
+    compiler: [gcc]
+    providers:
+      blas: [openblas]
+      mpi: [openmpi]

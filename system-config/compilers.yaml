@@ -1,0 +1,27 @@
+compilers:
+- compiler:
+    spec: gcc@4.8.5
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    flags: {}
+    operating_system: centos7
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+- compiler:
+    spec: gcc@8.2.0
+    paths:
+      cc: /usr/local/bin/gcc
+      cxx: /usr/local/bin/g++
+      f77: null
+      fc: null
+    flags: {}
+    operating_system: centos7
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
