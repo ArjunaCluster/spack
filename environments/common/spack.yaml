@@ -1,0 +1,40 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  packages:
+    all:
+      compiler: [gcc]
+  definitions:
+  - compilers:
+    - 'gcc@11:'
+    - gcc@4.8.5
+    - gcc@8.2.0
+  - cuda:
+    - 'cuda@11.4:'
+    - cuda@10.2:10.3
+  - blas:
+    - openblas
+    - intel-mkl
+    - netlib-lapack
+  - mpi:
+    - 'openmpi@4.1: fabrics=auto'
+    - nvhpc+blas+lapack+mpi
+    - mpich@3.2
+  - devtools:
+    - cmake
+    - git
+    - gmake
+
+  specs:
+  - $compilers
+  - $cuda
+  - $blas
+  - $mpi
+  - $devtools
+  - matrix:
+    - [hdf5 +cxx +fortran +mpi]
+    - [$^mpi]
+  view: false
