@@ -4,7 +4,7 @@ config:
 
   # Install Packages in user's folder
   install_tree:
-    root: ~/spack/opt/spack
+    root: ~/.spack/opt/spack
 
   # Cache source files in user's folder
-  source_cache: ~/spack/var/spack/cache
+  source_cache: ~/.spack/var/spack/cache

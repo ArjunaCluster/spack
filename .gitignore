@@ -1,1 +1,15 @@
 __pycache__
+build_cache/
+.spack-env/
+spack.lock
+
+# dot files
+.bash_history
+.viminfo
+.python_history
+
+# Non Spack Config Folders
+.subversion
+.pki/
+.conda/
+.ssh/
