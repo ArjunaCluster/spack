@@ -1,15 +1,23 @@
-# -------------------------------------------------------------------------
-# This file controls default concretization preferences for Spack on Arjuna
-#
-# Settings here are versioned with Spack and are intended to provide
-# sensible defaults out of the box.
-#
-# Users can override these settings by editing their settings here:
-#   ~/.spack/packages.yaml
-# -------------------------------------------------------------------------
 packages:
+  openssh:
+    externals:
+    - spec: openssh@7.4p1
+      prefix: /usr
+    buildable: False
+  python:
+    variants: "~pythoncmd"
+  cmake:
+    version: [3.17.5]
+    externals:
+    - spec: cmake@3.17.5
+      prefix: /usr/local
+    buildable: False
   all:
-    compiler: [gcc]
+    compiler:: [gcc]
+    target:: [broadwell]
     providers:
-      blas: [openblas]
-      mpi: [openmpi]
+      blas:: [openblas]
+      mpi:: [openmpi]
+      flame:: [libflame]
+      lapack:: [openblas]
+      scalapack:: [netlib-scalapack]
