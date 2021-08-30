@@ -1,20 +1,32 @@
 #/bin/bash
-
-SPACK=/home/spack/spack/bin/spack
-export SPACK
-
-read -r -d '' SCRIPT << EOM
-#SBATCH nodes=1
-#SBATCH mem=32G
-#SBACTH cpu=16
-#SBATCH time=1-0
-$SPACK env activate -d \${ENV}
-$SPACK concretize -f
-$SPACK install -j 16
-EOM
-
+# Script to install /home/spack/environments/*
+set -e
 
 for ENV in $(find /home/spack/environments -maxdepth 1 -mindepth 1 -type d); do
-    export ENV
-    echo "$SCRIPT" | envsubst '${ENV}'
+    echo "updating $ENV"
+
+    # Activate ENV
+    spack env activate -d ${ENV}
+
+    # Concretize
+    echo "Concretize $ENV"
+    time spack concretize --force
+
+    # Fetch Dependencies
+    echo "Fetching Dependencies for $ENV"
+    time spack fetch --dependencies --missing
+
+    # Install Spec
+    echo "Installing $ENV"
+    time srun \
+        --ntasks 1 --ntasks-per-node 1 \
+        --cpus-per-task 32 --mem-per-cpu 1G --time 2:00:00 \
+        --nodelist=d001 \
+        --account admin --partition admin \
+        spack install --jobs 16 --verbose
+
+    echo "Installed $ENV"
 done
+
+# Update Modules
+spack module lmod refresh --delete-tree --yes-to-all

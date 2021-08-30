@@ -10,7 +10,7 @@ packages:
     version: [3.17.5]
     externals:
     - spec: cmake@3.17.5
-      prefix: /usr/local
+      prefix: /usr/local/bin/
     buildable: False
   all:
     compiler:: [gcc]

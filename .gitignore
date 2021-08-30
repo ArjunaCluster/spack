@@ -13,3 +13,10 @@ spack.lock
 .pki/
 .conda/
 .ssh/
+.lesshst
+.cache/
+.cmake/
+
+# Log Files
+slurm-*.log
+*.log

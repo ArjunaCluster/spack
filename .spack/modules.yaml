@@ -1,0 +1,34 @@
+modules:
+  enable::
+    - lmod
+    - tcl
+  default:
+    lmod:
+      blacklist_implicits: true
+      hash_length: 0
+      whitelist:
+        - gcc
+      blacklist:
+        - '%gcc@4.8.5'
+      hierarchy:
+        - mpi
+      core_compilers:
+        - 'gcc@4.8.5'
+  lmod:
+    all:
+      filter:
+        environment_blacklist:
+          - "C_INCLUDE_PATH"
+          - "CPLUS_INCLUDE_PATH"
+          - "LIBRARY_PATH"
+      environment:
+        set:
+          '{name}_ROOT': '{prefix}'
+    openmpi:
+      environment:
+        set:
+          SLURM_MPI_TYPE: pmi2
+          OMPI_MCA_btl_openib_warn_default_gid_prefix: '0'
+    projections:
+      all:          '{name}/{version}'
+      ^lapack:      '{name}/{version}-{^lapack.name}'
