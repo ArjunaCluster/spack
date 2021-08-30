@@ -51,9 +51,14 @@ spack:
     - py-scipy
 
   specs:
+  - matrix:
+    - [$compilers]
+    - ['%gcc@4.8.5']
   - julia
   - miniconda3
-  - netlib-scalapack
+  - matrix:
+    - [netlib-scalapack, fftw]
+    - ['^openmpi@4.1: fabrics=auto']
   - libxc
   - matrix:
     - [$cuda, $blas, $mpi, $devtools, $python]
@@ -63,3 +68,8 @@ spack:
     - [$^python]
     - [$%compilers]
   view: false
+  modules:
+    default:
+      lmod:
+        core_compilers:
+        - gcc@4.8.5
