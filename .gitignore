@@ -16,6 +16,7 @@ spack.lock
 .lesshst
 .cache/
 .cmake/
+.bashrc
 
 # Log Files
 slurm-*.log
