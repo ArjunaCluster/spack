@@ -7,10 +7,9 @@ packages:
   python:
     variants: "~pythoncmd"
   cmake:
-    version: [3.17.5]
     externals:
     - spec: cmake@3.17.5
-      prefix: /usr/local/bin/
+      prefix: /usr/local
     buildable: False
   all:
     compiler:: [gcc]
