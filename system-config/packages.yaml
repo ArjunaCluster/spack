@@ -4,6 +4,11 @@ packages:
     - spec: openssh@7.4p1
       prefix: /usr
     buildable: False
+  openmpi:
+    externals:
+    - spec: openmpi@4.1.1 schedulers=slurm +thread_multiple ~cuda +singularity %gcc@4.8.5
+    buildable: True
+    variants: "schedulers=slurm"
   python:
     variants: "~pythoncmd"
   cmake:
