@@ -1,4 +1,9 @@
 packages:
+  slurm:
+    externals:
+    - spec: slurm@20.11
+      prefix: /usr
+    buildable: False
   openssh:
     externals:
     - spec: openssh@7.4p1
