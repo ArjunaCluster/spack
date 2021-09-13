@@ -1,7 +1,7 @@
 packages:
   slurm:
     externals:
-    - spec: slurm@20.11
+    - spec: slurm@20-11-8-1 sysconfdir=/etc/slurm
       prefix: /usr
     buildable: False
   openssh:
