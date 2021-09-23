@@ -47,14 +47,14 @@ class Julia(Package):
         url = "https://julialang-s3.julialang.org/bin/linux/x64/{0}/julia-{1}-linux-x86_64.tar.gz"
         return url.format(version.up_to(2), version)
 
-    def fetch_remote_versions(self, **kwargs):
+    def fetch_remote_versions(self, concurrency=128):
         # Fetch versions from JuliaLang
         _, _, resp = spack.util.web.read_from_url(self.list_url)
         all_versions = json.load(resp)
         versions = dict()
         for k, v in all_versions.items():
             for files in v["files"]:
-                if files["triplet"].strip() == "x86_64-linux-gnu" and v["stable"]:
+                if files["triplet"].strip() == "x86_64-linux-gnu":
                     versions[k] = files["url"]
 
         return versions
