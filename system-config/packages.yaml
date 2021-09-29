@@ -12,7 +12,7 @@ packages:
   openmpi:
     externals:
     - spec: openmpi@4.1.1 schedulers=slurm +thread_multiple ~cuda +singularity %gcc@4.8.5
-    prefix: /usr/local
+      prefix: /usr/local
     buildable: True
     variants: "schedulers=slurm"
   python:
