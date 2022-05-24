@@ -1,9 +1,0 @@
-modules:
-  default:
-    roots:
-      tcl: ~/.spack/share/spack/modules
-      lmod: ~/.spack/share/spack/lmod
-    enable:: [lmod]
-    lmod:
-      core_compilers:
-      - gcc@4.8.5

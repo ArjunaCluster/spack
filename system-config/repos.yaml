@@ -1,3 +1,0 @@
-repos:
-  - /home/spack/repo
-  - $spack/var/spack/repos/builtin

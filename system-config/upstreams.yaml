@@ -1,6 +1,0 @@
-# This file defines the default upsteam spack installations for users
-# This allows users to build against packages installed by the spack user
-# See: https://spack.readthedocs.io/en/latest/chain.html
-upstreams:
-  arjuna-spack:
-    install_tree: /home/spack/.spack/opt/spack
